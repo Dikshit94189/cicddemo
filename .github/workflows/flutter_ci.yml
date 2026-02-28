@@ -30,17 +30,47 @@
 #
 #      - name: Build APK
 #        run: flutter build apk --release
+#
+#name: Flutter CI
+#
+#on:
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Setup Flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.32.1'
+#          channel: 'stable'
+#          cache: true
+#
+#      - name: Install dependencies
+#        run: flutter pub get
+#
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Build APK
+#        run: flutter build apk --release
 
-name: Flutter CI
+
+name: Flutter Web CI-CD
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -50,14 +80,21 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.1'
-          channel: 'stable'
-          cache: true
+          channel: stable
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze project
-        run: flutter analyze
+      - name: Run tests
+        run: flutter test
 
-      - name: Build APK
-        run: flutter build apk --release
+      - name: Build Web
+        run: flutter build web
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          projectId: flutter-auth-demo-2026

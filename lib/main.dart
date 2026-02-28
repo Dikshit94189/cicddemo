@@ -1,3 +1,4 @@
+import 'package:cicddemo/widgets/counter_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,8 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      // home: HomePage(),
+      home: CounterWidget(),
       debugShowCheckedModeBanner: false,
     );
   }
