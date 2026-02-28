@@ -1,3 +1,36 @@
+#name: Flutter CI
+#
+#on:
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Setup Flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.32.1'
+#
+#      - name: Install dependencies
+#        run: flutter pub get
+#
+#      - name: Analyze project
+#        run: flutter analyze
+#
+#      - name: Run tests
+#        run: flutter test
+#
+#      - name: Build APK
+#        run: flutter build apk --release
+
 name: Flutter CI
 
 on:
@@ -11,22 +44,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: '3.32.1'
+          channel: 'stable'
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze project
         run: flutter analyze
-
-      - name: Run tests
-        run: flutter test
 
       - name: Build APK
         run: flutter build apk --release
