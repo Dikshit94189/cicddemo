@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "🚀 CI/CD LIVE DEMO Test While Live Again check",
+              "🚀 CI/CD LIVE DEMO Test While Live Again check from phone check",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 40,
