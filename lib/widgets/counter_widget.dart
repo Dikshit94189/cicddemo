@@ -19,7 +19,7 @@ class _CounterWidgetState extends State<CounterWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('CI CD EXP')),
+      appBar: AppBar(title: Text('CI CD EXPle')),
       body:  SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
