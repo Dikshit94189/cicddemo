@@ -24,7 +24,7 @@ class _CounterWidgetState extends State<CounterWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("HEY"),
+            Text("First add .github/workflows/flutter_ci.yml file inside the project \n 2. Add the firebase file into setting of github"),
             Text(
               'Count: $count',
               key: const Key('counter_text'),
