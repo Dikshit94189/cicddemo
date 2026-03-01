@@ -18,21 +18,27 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Count: $count',
-          key: const Key('counter_text'),
-          style: const TextStyle(fontSize: 24),
+    return Scaffold(
+      appBar: AppBar(title: Text('CI CD EXP')),
+      body:  SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("HEY"),
+            Text(
+              'Count: $count',
+              key: const Key('counter_text'),
+              style: const TextStyle(fontSize: 24),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              key: const Key('increment_button'),
+              onPressed: increment,
+              child: const Text("Increment"),
+            )
+          ],
         ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          key: const Key('increment_button'),
-          onPressed: increment,
-          child: const Text("Increment"),
-        )
-      ],
+      ),
     );
   }
 }
