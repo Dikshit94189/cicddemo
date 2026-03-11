@@ -29,7 +29,7 @@ class _CounterWidgetState extends State<CounterWidget> {
             Text("5 MArch"),
             Text(
               'Count: $count',
-              key: const Key('counter_text'),
+              key: const Key('counter_text widget'),
               style: const TextStyle(fontSize: 24),
             ),
             const SizedBox(height: 20),
